@@ -21,6 +21,10 @@ const isValidDate = dateString => {
   return regEx.test(dateString);
 }
 
+app.get('/', (req, res) => {
+  res.send('travel tracker api')
+});
+
 app.get('/api/v1/travelers', (req, res) => {
   const { travelers } = app.locals;
   res.status(200).json({ travelers });
