@@ -112,6 +112,25 @@ app.post('/api/v1/trips', (req, res) => {
   });
 });
 
+app.post('/api/v1/travelers', (req, res) => {
+  const { name, travelerType } = req.body;
+  const index = app.locals.travelers.length - 1
+  const id = app.locals.travelers[index].id + 1
+
+  const newTraveler = {
+    id,
+    name,
+    travelerType
+  }
+
+  if(!newTraveler.id || !newTraveler.name || !newTraveler.travelerType) {
+    return res.status(422).send({ error: 'Missing content.' })
+  } else {
+    app.locals.travelers.push(newTraveler)
+  }
+  res.status(200).send(newTraveler)
+});
+
 app.post('/api/v1/destinations', (req, res) => {
   const {
     id,
