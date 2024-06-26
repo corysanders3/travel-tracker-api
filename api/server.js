@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const port = process.env.PORT || 3001;
 const app = express();
-const travelers = require('./data/travelers');
-const trips = require('./data/trips');
-const destinations = require('./data/destinations');
+const travelers = require('../data/travelers');
+const trips = require('../data/trips');
+const destinations = require('../data/destinations');
 
 app.locals = {
   title: 'Travel Tracker API',
